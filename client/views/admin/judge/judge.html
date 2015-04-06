@@ -1,0 +1,38 @@
+<template name="judge">
+	<div class="container animated fadeIn">
+		{{#if Template.subscriptionsReady}}
+			<table>
+				<thead>
+					<tr>
+						<th data-field="name">Name</th>
+						<th data-field="username">Username</th>
+						<th data-field="password">Password</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each judges}}
+						{{#if isJudge this.profile.roles}}
+							<tr style="{{#if isHover this._id}} background-color: #1565c0; color: white; {{/if}}">
+								<td class="text-capitalize">{{ this.profile.fname }}</td>
+								<td>{{ this.username }}</td>
+								<td>{{ this.profile.pass }}</td>
+								{{#if isHover this._id}}
+									<td><a title="Edit" href="/judge/{{ this._id }}/edit" style="color: white" ><i class="small mdi-image-edit"></i></a> <a href="/judge/{{ this._id }}/delete" style="color: white;" title="Delete"><i class="small mdi-action-highlight-remove"></i></a></td>
+								{{else}}
+									<td></td>
+								{{/if}}
+							</tr>
+						{{/if}}
+					{{/each}}
+				</tbody>
+			</table>
+		{{else}}
+			{{> preloader}}
+		{{/if}}
+	</div>
+
+	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+		<a href="/judge/add" class="btn-floating btn-large waves-effect waves-light {{ getFormColor }}"><i class="mdi-content-add"></i></a>
+	</div>
+</template>

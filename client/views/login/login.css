@@ -1,0 +1,18 @@
+.login-container header {
+	margin-bottom: 15em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.login-field input[type=text]:focus + label,
+.login-field input[type=password]:focus + label {
+	color: #1976d2;
+}
+
+.login-field input:focus {
+	border-bottom: 1px solid #1976d2;
+	box-shadow: 0 1px 0 0 #1976d2;
+}

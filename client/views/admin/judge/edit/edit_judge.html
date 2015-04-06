@@ -1,0 +1,33 @@
+<template name="editJudge">
+	<div class="container animated fadeIn m-top-50">
+		<div class="row">
+			<form class="col s12">
+				{{#if Template.subscriptionsReady}}
+					<div class="row">
+						<div class="input-field judge-field col s12">
+							<input id="name" name="name" type="text" class="validate" value="{{ judge.profile.fname }}" autofocus>
+							<label for="name" class="active">Name</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field judge-field col s12">
+							<input id="username" name="username" type="text" class="validate" value="{{ judge.username }}">
+							<label for="username" class="active">Username</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field judge-field col s12">
+							<input id="password" name="password" type="text" class="validate" value="{{ judge.profile.pass }}">
+							<label for="password" class="active">Password</label>
+						</div>
+					</div>
+
+					<button class="btn waves-effect waves-light {{ getFormColor }} right" type="submit" name="">Update</button>
+					<a href="/judge" class="btn waves-effect waves-light grey darken-2 right m-right-20">Cancel</a>
+				{{else}}
+					{{> preloader}}
+				{{/if}}
+			</form>
+		</div>
+	</div>
+</template>

@@ -1,0 +1,25 @@
+<template name="login">
+	<div class="login-container">
+		<header>
+			<h1>Tabulation System</h1>
+			
+			<div class="row">
+				<form class="col s12">
+					<div class="input-field login-field col s12">
+						<input id="username" type="text" class="validate" autofocus>
+						<label for="username">Username</label>
+					</div>
+					<div class="input-field login-field col s12">
+						<input id="password" type="password" class="validate">
+						<label for="password">Password</label>
+					</div>
+					<div class="input-field col s12">
+						<button class="btn waves-effect waves-light right blue darken-2" type="submit">Login</button>
+					</div>
+				</form>
+			</div>
+		</header>
+	</div>
+
+	{{> footer}}
+</template>

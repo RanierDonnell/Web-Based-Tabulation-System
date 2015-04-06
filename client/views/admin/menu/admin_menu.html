@@ -1,0 +1,38 @@
+<template name="adminMenu">
+	<nav class="{{ getFormColor }}" style="height: 100px;">
+		<!-- show on large screen -->
+		<ul class="side-nav fixed hide-on-med-and-down">
+			<li class="logo center"><h3>Tabulation System</h3></li>
+		    <li class="{{ isActive 'Dashboard' }}"><a href="/admin" class="waves-effect waves-light">Dashboard</a></li>
+		    <li class="{{ isActive 'Judge' }}"><a href="/judge" class="waves-effect waves-light">Judge</a></li>
+		    <li class="{{ isActive 'Candidate' }}"><a href="/candidate" class="waves-effect waves-light">Candidate</a></li>
+			<li id="logout"><a href="#" id="logout" class="waves-effect waves-light">Logout</a></li>
+		</ul>
+		<!-- // -->
+
+		<!-- show on medium down screen -->
+		<ul id="slide-out" class="side-nav">
+			<li class="logo center"><h3>Tabulation System</h3></li>
+		    <li><a href="/admin" class="waves-effect waves-light">Dashboard</a></li>
+		    <li><a href="/judge" class="waves-effect waves-light">Judge</a></li>
+		    <li><a href="/candidate" class="waves-effect waves-light">Candidate</a></li>
+		    <li id="logout"><a id="logout">Logout</a></li>
+		</ul>
+		<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+		<!-- // -->
+
+		<!-- show on large screen -->
+		<div class="row hide-on-med-and-down">
+			<div class="col s9 offset-s3">
+				<h2>{{ formTitle }}</h2>	
+			</div>
+		</div>
+		<!-- // -->
+		
+		<!-- show on medium down screen -->
+		<div class="center">
+			<h2>{{ formTitle }}</h2>
+		</div>
+		<!-- //	 -->
+	</nav>
+</template>
