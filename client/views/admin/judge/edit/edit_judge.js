@@ -60,5 +60,8 @@ Template.editJudge.events({
 Template.editJudge.helpers({
 	judge: function() {
 		return Meteor.users.findOne({_id: Router.current().params._id});
+	},
+	getFormColor: function() {
+		return Session.get('formColor');
 	}
 });

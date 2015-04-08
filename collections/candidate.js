@@ -16,17 +16,41 @@ Candidates.allow({
 });
 
 Meteor.methods({
-	addCandidate: function(options) {
+	addCandidate: function(doc) {
 		var nonEmptyString = Match.Where(function(x) {
 			check(x, String);
 			return x.length > 0;
 		});
-		check(options.number, Match.Integer);
-		check(options.fname, nonEmptyString);
-		check(options.mname, nonEmptyString);
-		check(options.lname, nonEmptyString);
-		check(options.place, nonEmptyString);
+		check(doc.number, Match.Integer);
+		check(doc.fname, nonEmptyString);
+		check(doc.mname, nonEmptyString);
+		check(doc.lname, nonEmptyString);
+		check(doc.place, nonEmptyString);
 
-		return Candidates.insert(options);
+		return Candidates.insert(doc);
+	},
+	editCandidate: function(doc) {
+		var nonEmptyString = Match.Where(function(x) {
+			check(x, String);
+			return x.length > 0;
+		});
+		check(doc.number, Match.Integer);
+		check(doc.fname, nonEmptyString);
+		check(doc.mname, nonEmptyString);
+		check(doc.lname, nonEmptyString);
+		check(doc.place, nonEmptyString);
+
+		return Candidates.update(doc._id, {
+			$set: {
+				number: doc.number,
+				fname: doc.fname,
+				mname: doc.mname,
+				lname: doc.lname,
+				place: doc.place
+			}
+		});
+	},
+	deleteCandidate: function(doc) {
+		return Candidates.remove(doc._id);
 	}
 });

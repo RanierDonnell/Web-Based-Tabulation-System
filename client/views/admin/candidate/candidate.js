@@ -1,5 +1,6 @@
 Template.candidate.onCreated(function() {
 	this.subscribe('candidates');
+	this.subscribe('images');
 });
 
 
@@ -18,10 +19,13 @@ Template.candidate.events({
 });
 
 Template.candidate.helpers({
+	candidates: function() {
+		return _.sortBy(Candidates.find().fetch(), 'number');
+	},
 	getFormColor: function() {
 		return Session.get('formColor');
 	},
-	isHover: function() {
-		return Session.get('candidateTableHover');
+	getImage: function(id) {
+		return Images.find({'metadata.owner': id});
 	}
 });
