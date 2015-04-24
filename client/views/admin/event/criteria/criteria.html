@@ -1,0 +1,61 @@
+<template name="criteria">
+	<div class="animated fadeIn">
+		<form class="col s12" id="edit-form">
+			{{#if Template.subscriptionsReady}}
+				{{#each criterias}}
+					{{#if editCriteria this._id}}
+						<div class="row">
+							<div class="input-field col s5 edit-criteria">
+								<input id="edit-name" name="edit-name" type="text" class="validate" value="{{ this.name }}" autofocus>
+								<label for="edit-name" class="active">Name</label>
+							</div>
+							<div class="input-field col s4 edit-criteria">
+								<input id="edit-points" name="edit-points" type="text" class="validate" value="{{ this.points }}" autofocus>
+								<label for="edit-points" class="active">Points</label>
+							</div>
+							<div class="col s3 m-top-15">
+								<button type="submit" class="btn waves-effect waves-light" id="update" style="background-color: #1976d2;">Update</button>
+								<button type="button" class="btn waves-effect waves-light red darken-2" id="cancel">Cancel</button>
+							</div>
+						</div>
+					{{else}}
+						<div class="row">
+							<div class="col s5 edit-criteria">
+								<p>{{ this.name }}</p>
+							</div>
+							<div class="col s4 edit-criteria">
+								<p>{{ this.points }} points</p>
+							</div>
+							<div class="col s3 m-top-15">
+								<button type="button" class="btn waves-effect waves-light {{ getFormColor }}" id="edit">Edit</button>
+								<button type="button" class="btn waves-effect waves-light red darken-2" id="delete">Delete</button>
+							</div>
+						</div>
+					{{/if}}
+				{{/each}}
+			{{/if}}
+		</form>
+
+		<form class="col s12" id="add-form">
+			{{#if Template.subscriptionsReady}}
+				{{ setEventTitle }}
+
+				<div class="row">
+					<div class="input-field col s5">
+						<input id="name" name="name" type="text" class="validate" autofocus>
+						<label for="name">Name</label>
+					</div>
+					<div class="input-field col s5">
+						<input id="points" name="points" type="number" class="validate">
+						<label for="points">Points</label>
+					</div>
+					<div class="col s2 m-top-15">
+						<button type="submit" class="btn waves-effect waves-light {{ getFormColor }}">Add</button>
+					</div>
+				</div>
+			{{else}}
+				{{> preloader}}
+			{{/if}}
+		</form>
+	</div>
+</template>

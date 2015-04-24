@@ -1,6 +1,5 @@
 Template.candidate.onCreated(function() {
 	this.subscribe('candidates');
-	this.subscribe('images');
 });
 
 

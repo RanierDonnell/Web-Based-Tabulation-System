@@ -6,6 +6,9 @@
 		    <li class="{{ isActive 'Dashboard' }}"><a href="/admin" class="waves-effect waves-light">Dashboard</a></li>
 		    <li class="{{ isActive 'Judge' }}"><a href="/judge" class="waves-effect waves-light">Judge</a></li>
 		    <li class="{{ isActive 'Candidate' }}"><a href="/candidate" class="waves-effect waves-light">Candidate</a></li>
+		    <li class="{{ isActive 'Event' }}"><a href="/event" class="waves-effect waves-light">Event</a></li>
+		    <li class="{{ isActive 'Report' }}"><a href="/report" class="waves-effect waves-light">Report</a></li>
+		    <li class="{{ isActive 'Setting' }}"><a href="/setting" class="waves-effect waves-light">Setting</a></li>
 			<li id="logout"><a href="#" id="logout" class="waves-effect waves-light">Logout</a></li>
 		</ul>
 		<!-- // -->
@@ -16,6 +19,9 @@
 		    <li><a href="/admin" class="waves-effect waves-light">Dashboard</a></li>
 		    <li><a href="/judge" class="waves-effect waves-light">Judge</a></li>
 		    <li><a href="/candidate" class="waves-effect waves-light">Candidate</a></li>
+		    <li><a href="/event" class="waves-effect waves-light">Event</a></li>
+		    <li><a href="/report" class="waves-effect waves-light">Report</a></li>
+		    <li><a href="/setting" class="waves-effect waves-light">Setting</a></li>
 		    <li id="logout"><a id="logout">Logout</a></li>
 		</ul>
 		<a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -23,15 +29,15 @@
 
 		<!-- show on large screen -->
 		<div class="row hide-on-med-and-down">
-			<div class="col s9 offset-s3">
-				<h2>{{ formTitle }}</h2>	
+			<div class="col s9 offset-s3 text-capitalize">
+				<h2>{{ formTitle }} {{#if eventTitle }} - {{ eventTitle }} {{/if}}</h2>	
 			</div>
 		</div>
 		<!-- // -->
 		
 		<!-- show on medium down screen -->
-		<div class="center">
-			<h2>{{ formTitle }}</h2>
+		<div class="center text-capitalize">
+			<h2>{{ formTitle }} {{#if eventTitle }} - {{ eventTitle }} {{/if}}</h2>
 		</div>
 		<!-- //	 -->
 	</nav>

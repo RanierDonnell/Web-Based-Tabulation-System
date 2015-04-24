@@ -1,0 +1,33 @@
+<template name="eliminationReport">
+	{{#if Template.subscriptionsReady}}
+		<div class="for-print">
+			<h5 class="center">Elimination Score</h5>
+			<table class="animated fadeIn">
+				<thead>
+					<tr>
+						<th data-field="candidate">Candidate</th>
+						<th data-field="talent">Talent</th>
+						<th data-field="swimwear">Swimwear</th>
+						<th data-field="gown">Gown</th>
+						<th data-field="interview">Interview</th>
+						<th data-field="total">Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each candidates}}
+						<tr>
+							<td class="text-capitalize">{{ this.number }}. {{ this.name }}</td>
+							<td>{{ this.talent }}</td>
+							<td>{{ this.swimwear }}</td>
+							<td>{{ this.gown }}</td>
+							<td>{{ this.interview }}</td>
+							<td>{{ this.total }}</td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+	{{else}}
+		{{> preloader}}
+	{{/if}}
+</template>

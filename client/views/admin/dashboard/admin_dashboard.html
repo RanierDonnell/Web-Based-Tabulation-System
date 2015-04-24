@@ -1,3 +1,30 @@
 <template name="adminDashboard">
-	admin dashboard
+	{{#if Template.subscriptionsReady}}
+		<div class="row animated fadeIn">
+			<div class="col s6">
+				<form class="form-border">
+					<h4>Events</h4>
+					<p>
+						<input name="event" type="radio" id="none" checked />
+						<label for="none">None</label>
+					</p>
+					{{#each events}}
+						<p>
+							{{#if isActivated this._id}}
+								<input name="event" type="radio" id="{{ this.name }}" checked/>
+							{{else}}
+								<input name="event" type="radio" id="{{ this.name }}" />
+							{{/if}}
+							<label for="{{ this.name }}" class="text-capitalize">{{ this.name }}</label>
+						</p>
+					{{/each}}
+				</form>
+			</div>
+			<div class="col s6 center">
+				<button class="btn waves-effect waves-light m-top-50" type="submit" name="generate" id="generate">Generate Finalist</button>
+			</div>
+		</div>
+	{{else}}
+		{{> preloader}}
+	{{/if}}
 </template>

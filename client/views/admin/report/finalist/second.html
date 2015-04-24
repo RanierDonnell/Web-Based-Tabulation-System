@@ -1,0 +1,11 @@
+<template name="secondReport">
+	{{#if Template.subscriptionsReady}}
+		<div class="for-print center">
+			<h5>Second Runner-up</h5>
+			<h3>{{ candidate second.candidateId }}</h3>
+			<p>Average Score: {{ computeAverage second.total }}%</p>
+		</div>
+	{{else}}
+		{{> preloader}}
+	{{/if}}
+</template>

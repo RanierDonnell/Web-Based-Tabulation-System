@@ -1,0 +1,95 @@
+<template name="report">
+	<div class="row animated fadeIn">
+		<div class="input-field col s3 offset-s7">
+			<select class="browser-default text-capitalize" id="select-report">
+				<option value="" selected>Choose report</option>
+				<option value="b-talent">Best in Talent</option>
+				<option value="b-swimwear">Best in Swimwear</option>
+				<option value="b-gown">Best in Gown</option>
+				<option value="b-interview">Best in Interview</option>
+				<option value="talent">Talent</option>
+				<option value="swimwear">Swimwear</option>
+				<option value="gown">Gown</option>
+				<option value="interview">Interview</option>
+				<option value="elimination-score">Elimination Score</option>
+				<option value="finalist">Finalist</option>
+				<option value="finalist-score">Finalist Score</option>
+				<option value="4th">4th Runner up</option>
+				<option value="3rd">3rd Runner up</option>
+				<option value="2nd">2nd Runner up</option>
+				<option value="1st">1st Runner up</option>
+				<option value="mutya">Mutya sa Tagbilaran 2015</option>
+			</select>
+		</div>
+		<div class="col s2 m-top-20">
+			<button class="btn waves-effect waves-light purple darken-2" type="submit" id="print">Print</button>
+		</div>
+		
+		<div class="col s12"> 
+			{{#if selectedReport 'TALENT'}}
+				{{> talentReport}}
+			{{/if}}
+
+			{{#if selectedReport 'SWIMWEAR'}}
+				{{> swimwearReport}}
+			{{/if}}
+
+			{{#if selectedReport 'GOWN'}}
+				{{> gownReport}}
+			{{/if}}
+
+			{{#if selectedReport 'INTERVIEW'}}
+				{{> interviewReport}}
+			{{/if}}
+
+			{{#if selectedReport 'B-TALENT'}}
+				{{> bestInTalent}}
+			{{/if}}
+
+			{{#if selectedReport 'B-SWIMWEAR'}}
+				{{> bestInSwimwear}}
+			{{/if}}
+
+			{{#if selectedReport 'B-INTERVIEW'}}
+				{{> bestInInterview}}
+			{{/if}}
+
+			{{#if selectedReport 'B-GOWN'}}
+				{{> bestInGown}}
+			{{/if}}
+
+			{{#if selectedReport 'ELIMINATION-SCORE'}}
+				{{> eliminationReport}}
+			{{/if}}
+
+			{{#if selectedReport 'FINALIST'}}
+				{{> finalistReport}}
+			{{/if}}
+
+			{{#if selectedReport 'FINALIST-SCORE'}}
+				{{> finalistScore}}
+			{{/if}}
+
+			{{#if selectedReport '4TH'}}
+				{{> fourthReport}}
+			{{/if}}
+
+			{{#if selectedReport '3RD'}}
+				{{> thirdReport}}
+			{{/if}}
+
+			{{#if selectedReport '2ND'}}
+				{{> secondReport}}
+			{{/if}}
+
+			{{#if selectedReport '1ST'}}
+				{{> firstReport}}
+			{{/if}}
+
+			{{#if selectedReport 'MUTYA'}}
+				{{> mutyaReport}}
+			{{/if}}
+		</div>
+
+	</div>
+</template>

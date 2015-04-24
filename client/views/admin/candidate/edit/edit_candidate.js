@@ -9,22 +9,21 @@ Template.editCandidate.onCreated(function() {
 Template.editCandidate.rendered = function() {
 	Session.set('formTitle', 'Candidate');
 	Session.set('formColor', 'red darken-2');
-	$('#number').focus();
+
+	Meteor.setTimeout(function() {
+		$('#number').focus();
+	}, 300);
 
 	$('form').validate({
 		rules: {
 			number: 'required',
-			// image: 'required',
 			fname: 'required',
-			mname: 'required',
 			lname: 'required',
 			place: 'required',
 		},
 		messages: {
 			number: 'Please enter the candidate number',
-			// image: 'Please enter image',
 			fname: 'Please enter first name',
-			mname: 'Please enter middle name',
 			lname: 'Please enter last name',
 			place: 'Please enter the place the candidate represents',
 		},
@@ -43,7 +42,7 @@ Template.editCandidate.rendered = function() {
 					Materialize.toast(error.reason, 4000, 'red darken-2');
 				}
 				else{
-					Materialize.toast('Successfully added!', 4000, 'green darken-2');
+					Materialize.toast('Successfully updated!', 4000, 'green darken-2');
 
 					var image = $('#image')[0].files;
 					
@@ -78,6 +77,9 @@ Template.editCandidate.rendered = function() {
 }
 
 Template.editCandidate.events({
+	'submit form': function(evt, tmpl) {
+		evt.preventDefault();
+	},
 	'change #image': function(evt, tmpl) {
 		var file = evt.target.files;
 

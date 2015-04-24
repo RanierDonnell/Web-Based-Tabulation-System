@@ -1,0 +1,34 @@
+<template name="reportEvent">
+	<div class="row animated fadeIn">
+		<div class="col s12" style="border-bottom: 1px solid #9e9e9e;">
+			<div class="input-field col s4 offset-s8">
+				<select class="browser-default text-capitalize" id="select-event">
+					<option value="" selected>Choose event</option>
+					{{#each events}}
+						<option value="{{ this._id }}">{{ this.name }}</option>
+					{{/each}}
+				</select>
+			</div>
+
+			{{#if selectedEvent 'TALENT'}}
+				{{> talentTable}}
+			{{/if}}
+
+			{{#if selectedEvent 'SWIMWEAR'}}
+				{{> swimwearTable}}
+			{{/if}}
+
+			{{#if selectedEvent 'GOWN'}}
+				{{> gownTable}}
+			{{/if}}
+
+			{{#if selectedEvent 'INTERVIEW'}}
+				{{> interviewTable}}
+			{{/if}}
+
+			{{#if selectedEvent 'FINAL'}}
+				{{> finalistTable}}
+			{{/if}}
+		</div>
+	</div>
+</template>

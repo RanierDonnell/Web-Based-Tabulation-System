@@ -1,0 +1,11 @@
+<template name="mutyaReport">
+	{{#if Template.subscriptionsReady}}
+		<div class="for-print center">
+			<h5>Mutya sa Tagbilaran 2015</h5>
+			<h3>{{ candidate mutya.candidateId }}</h3>
+			<p>Average Score: {{ computeAverage mutya.total }}%</p>
+		</div>
+	{{else}}
+		{{> preloader}}
+	{{/if}}
+</template>

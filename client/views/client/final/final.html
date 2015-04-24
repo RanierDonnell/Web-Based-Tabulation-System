@@ -1,0 +1,65 @@
+<template name="finalist">
+	<div class="row animated fadeIn">
+		{{#if Template.subscriptionsReady}}
+			{{ setSelectedCandidate }}
+			{{ setSelectedCandidateId }}
+			<div class="col hide-on-small-only l3">
+		    	<div class="tabs-wrapper">
+			      	<ul class="section table-of-contents">
+			      		{{#each candidates}}
+					        <li id="select-candidate">
+					        	<a href="#" class="text-capitalize {{#if selected this.number}} active {{/if}}">
+					        		{{ this.number }}. {{ this.fname }} {{ this.mname }} {{ this.lname }}
+					        	</a>
+					        </li>
+					    {{/each}}
+			      	</ul>
+			    </div>
+		    </div>
+			<div class="col l5">
+		      	<div class="section scrollspy center">
+					<img src="{{#each image }} {{ this.url }} {{/each}}" style="width: 450px; height: 500px;">
+		      		<p class="text-capitalize">{{ candidate.fname }} {{ candidate.mname }} {{ candidate.lname }}</p>
+		      		<div class="controls">
+		      			<button type="button" class="btn waves-effect waves-light green darken-2" id="prev"><i class="mdi-navigation-arrow-back"></i></button>
+		      			<button type="button" class="btn waves-effect waves-light green darken-2" id="next"><i class="mdi-navigation-arrow-forward"></i></button>
+		      		</div>
+		      	</div>
+		    </div>
+		    <div class="col l4">
+				<div class="event-title center" style="font-size: 70px;">
+		    		RUNNERS UP
+		    	</div>
+
+		    	<form style="margin-top: 20px;">
+		    		<div class="row">
+						<div class="input-field col s10">
+							<input id="criteria-1" name="criteria-1" type="number" min="0" max="40" step="0.01" class="validate" value="{{ finalist.criteria1 }}" autofocus>
+							<label for="criteria-1" class="active">Intelligence and Wit</label>
+						</div>
+						<div class="col s2 m-top-33">
+							/ 40
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s10">
+							<input id="criteria-2" name="criteria-2" type="number" min="0" max="60" step="0.01" class="validate" value="{{ finalist.criteria2 }}">
+							<label for="criteria-2" class="active">Beauty of Face and Grace Under Pressure</label>
+						</div>
+						<div class="col s2 m-top-33">
+							/ 60
+						</div>
+					</div>
+
+					<button type="submit" class="btn waves-effect waves-light green darken-2 right">Submit</button>
+		    	</form>
+		    </div>
+
+		    <div class="fixed-action-btn" style="bottom: 25px; left: 24px; z-index: 0;">
+				<a href="/category" class="btn-floating btn-large waves-effect waves-light green darken-2"><i class="mdi-hardware-keyboard-backspace"></i></a>
+			</div>
+		{{else}}
+			{{> preloader}}
+		{{/if}}
+	</div>
+</template>

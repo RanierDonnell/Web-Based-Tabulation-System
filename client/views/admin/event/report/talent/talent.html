@@ -1,0 +1,29 @@
+<template name="talentTable">
+	{{#if Template.subscriptionsReady}}
+		{{ setCounter }}
+		<table class="animated fadeIn">
+			<thead>
+				<tr>
+					<th data-field="count">#</th>
+					<th data-field="candidate">Candidate</th>
+					<th data-field="criteria-1">Performance level/showmanship</th>
+					<th data-field="criteria-2">Degree of Difficulty</th>
+					<th data-field="total">Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each talents}}
+					<tr>
+						<td><strong>{{ getCount }}</strong></td>
+						<td class="text-capitalize">{{ candidateNumber this.candidateId }}. {{ candidate this.candidateId }}</td>
+						<td>{{ this.criteria1 }}</td>
+						<td>{{ this.criteria2 }}</td>
+						<td>{{ this.total }}</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	{{else}}
+		{{> preloader}}
+	{{/if}}
+</template>

@@ -12,6 +12,9 @@ Template.adminMenu.helpers({
 	formTitle: function() {
 		return Session.get('formTitle');
 	},
+	eventTitle: function() {
+		return Session.get('eventTitle');
+	},
 	isActive: function(title) {
 		return Session.get('formTitle') == title ? 'active' : '';
 	},

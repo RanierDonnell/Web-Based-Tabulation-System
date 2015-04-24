@@ -1,0 +1,24 @@
+<template name="finaleeTable">
+	{{#if Template.subscriptionsReady}}
+		<table class="animated fadeIn">
+			<thead>
+				<tr>
+					<th data-field="candidate">Candidate</th>
+					<th data-field="talent">Intelligence and Wit</th>
+					<th data-field="swimwear">Beauty of Face and Grace Under Pressure</th>
+					<th data-field="total">Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each candidates}}
+					<tr>
+						<td class="text-capitalize">{{ this.number }}. {{ this.name }}</td>
+						<td>{{ this.criteria1 }}</td>
+						<td>{{ this.criteria2 }}</td>
+						<td>{{ this.total }}</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	{{/if}}
+</template>

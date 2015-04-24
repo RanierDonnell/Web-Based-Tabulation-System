@@ -1,0 +1,11 @@
+<template name="bestInGown">
+	{{#if Template.subscriptionsReady}}
+		<div class="for-print center">
+			<h5>Best in Gown</h5>
+			<h3>{{ candidate best.candidateId }}</h3>
+			<p>Total Points: {{ best.total }}</p>
+		</div>
+	{{else}}
+		{{> preloader}}
+	{{/if}}
+</template>

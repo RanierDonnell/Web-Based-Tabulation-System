@@ -1,7 +1,10 @@
 Template.addJudge.rendered = function() {
 	Session.set('formTitle', 'Judge');
 	Session.set('formColor', 'blue darken-2');
-	$('#name').focus();
+
+	Meteor.setTimeout(function() {
+		$('#name').focus();
+	}, 300);
 
 	$('form').validate({
 		rules: {
@@ -40,16 +43,6 @@ Template.addJudge.rendered = function() {
 		},
 		errorElement: 'em'
 	});
-	
-	// for (var i = 0; i < 1000; i++) {
-	// 	var judge = {
-	// 		name: Fake.word(),
-	// 		username: Fake.word() + '' + i,
-	// 		password: Fake.word()
-	// 	}
-
-	// 	Meteor.call('createSystemUser', judge);
-	// };
 
 }
 

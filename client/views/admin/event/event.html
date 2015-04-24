@@ -1,0 +1,42 @@
+<template name="event">
+	<div class="container animated fadeIn">
+		{{#if Template.subscriptionsReady}}
+			<table>
+				<thead>
+					<tr>
+						<th data-field="name">Name</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each events}}
+						<tr style="{{#if isHover this._id}} background-color: #388E3C; color: white; {{/if}}">
+							<td class="text-capitalize">{{ this.name }}</td>
+							{{#if isHover this._id}}
+								<td><a title="Edit" href="/event/{{ this._id }}/edit" style="color: white" ><i class="small mdi-image-edit"></i></a> <a href="/event/{{ this._id }}/delete" style="color: white;" title="Delete"><i class="small mdi-action-highlight-remove"></i></a></td>
+							{{else}}
+								<td></td>
+							{{/if}}
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		{{else}}
+			{{> preloader}}
+		{{/if}}
+	</div>
+
+	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+		<a class="btn-floating btn-large waves-effect waves-light {{ getFormColor }}">
+			<i class="mdi-editor-mode-edit"></i>
+		</a>
+		<ul>
+			<li>
+				<a href="/event/report" class="btn-floating {{ getFormColor }}"><i class="mdi-editor-insert-drive-file"></i></a>
+			</li>
+			<li>
+				<a href="/event/add" class="btn-floating {{ getFormColor }}"><i class="mdi-content-add"></i></a>
+			</li>
+		</ul>
+	</div>
+</template>

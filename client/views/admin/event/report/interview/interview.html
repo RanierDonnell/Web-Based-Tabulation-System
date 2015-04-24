@@ -1,0 +1,29 @@
+<template name="interviewTable">
+	{{#if Template.subscriptionsReady}}
+		{{ setCounter }}
+		<table class="animated fadeIn">
+			<thead>
+				<tr>
+					<th data-field="count">#</th>
+					<th data-field="candidate">Candidate</th>
+					<th data-field="criteria-1">Intelligence and Wit</th>
+					<th data-field="criteria-2">Grace under pressure</th>
+					<th data-field="total">Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each interviews}}
+					<tr>
+						<td><strong>{{ getCount }}</strong></td>
+						<td class="text-capitalize">{{ candidateNumber this.candidateId }}. {{ candidate this.candidateId }}</td>
+						<td>{{ this.criteria1 }}</td>
+						<td>{{ this.criteria2 }}</td>
+						<td>{{ this.total }}</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	{{else}}
+		{{> preloader}}
+	{{/if}}
+</template>

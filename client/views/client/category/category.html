@@ -1,0 +1,21 @@
+<template name="category">
+	<div class="row animated fadeIn">
+		{{#if Template.subscriptionsReady}}
+			{{#each events}}
+				<div class="col s4 offset-s4 text-uppercase center-align grow">
+					<div class="card" style="height: 590px;">
+						<div class="card-image" style="height: 700px;">
+							<a href="/event/{{ this.name }}/{{ this._id }}">
+								<img src="{{#each image this._id }} {{ this.url }} {{/each}}" style="height: 700px;">
+							</a>
+						</div>
+					</div>
+				</div>
+			{{/each}}
+
+			<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+				<a href="#" class="btn-floating btn-large waves-effect waves-light red darken-2" id="logout"><i class="mdi-action-account-balance-wallet"></i></a>
+			</div>
+		{{/if}}
+	</div>
+</template>

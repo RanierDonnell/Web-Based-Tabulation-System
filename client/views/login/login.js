@@ -28,7 +28,7 @@ Template.login.events({
 					Router.go('adminDashboard');
 				}
 				else {
-					
+					Router.go('category');
 				}
 			}
 		});

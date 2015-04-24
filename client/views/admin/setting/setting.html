@@ -1,0 +1,32 @@
+<template name="setting">
+	<div class="container animated fadeIn">
+		<div class="row">
+			<form class="col s12">
+				{{#if Template.subscriptionsReady}}
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="title" name="title" type="text" class="validate" value="{{ settings.title }}" autofocus>
+							<label for="title" class="active">Title</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="top" name="top" type="number" class="validate" value="{{ settings.top }}">
+							<label for="top" class="active">Final Top</label>
+						</div>
+					</div>
+
+					<button class="btn waves-effect waves-light {{ getFormColor }} right" type="submit" name="action">
+						{{#if settingsExist}}
+							Update
+						{{else}}
+							Save
+						{{/if}}
+					</button>
+				{{else}}
+					{{> preloader}}
+				{{/if}}
+			</form>
+		</div>
+	</div>
+</template>

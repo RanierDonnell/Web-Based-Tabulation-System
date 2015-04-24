@@ -10,7 +10,9 @@ Template.editJudge.rendered = function() {
 	Session.set('formTitle', 'Judge');
 	Session.set('formColor', 'blue darken-2');
 
-	$('#name').focus();
+	Meteor.setTimeout(function() {
+		$('#name').focus();
+	}, 300);
 
 	$('form').validate({
 		rules: {

@@ -23,7 +23,7 @@ Meteor.methods({
 		});
 		check(doc.number, Match.Integer);
 		check(doc.fname, nonEmptyString);
-		check(doc.mname, nonEmptyString);
+		check(doc.mname, String);
 		check(doc.lname, nonEmptyString);
 		check(doc.place, nonEmptyString);
 
@@ -34,9 +34,10 @@ Meteor.methods({
 			check(x, String);
 			return x.length > 0;
 		});
+		check(doc._id, nonEmptyString);
 		check(doc.number, Match.Integer);
 		check(doc.fname, nonEmptyString);
-		check(doc.mname, nonEmptyString);
+		check(doc.mname, String);
 		check(doc.lname, nonEmptyString);
 		check(doc.place, nonEmptyString);
 

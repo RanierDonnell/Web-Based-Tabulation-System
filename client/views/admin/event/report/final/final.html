@@ -1,0 +1,29 @@
+<template name="finalistTable">
+	{{#if Template.subscriptionsReady}}
+		{{ setCounter }}
+		<table class="animated fadeIn">
+			<thead>
+				<tr>
+					<th data-field="count">#</th>
+					<th data-field="candidate">Candidate</th>
+					<th data-field="criteria-1">Intelligence and Wit</th>
+					<th data-field="criteria-2">Beauty of Face and Grace Under Pressure</th>
+					<th data-field="total">Average</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each finalists}}
+					<tr>
+						<td><strong>{{ getCount }}</strong></td>
+						<td class="text-capitalize">{{ candidateNumber this.candidateId }}. {{ candidate this.candidateId }}</td>
+						<td>{{ this.criteria1 }}</td>
+						<td>{{ this.criteria2 }}</td>
+						<td>{{ this.total }}</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	{{else}}
+		{{> preloader}}
+	{{/if}}
+</template>

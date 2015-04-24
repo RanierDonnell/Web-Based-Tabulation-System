@@ -1,14 +1,16 @@
 Template.addCandidate.rendered = function() {
 	Session.set('formTitle', 'Candidate');
 	Session.set('formColor', 'red darken-2');
-	$('#number').focus();
+
+	Meteor.setTimeout(function() {
+		$('#number').focus();
+	}, 300);
 
 	$('form').validate({
 		rules: {
 			number: 'required',
 			image: 'required',
 			fname: 'required',
-			mname: 'required',
 			lname: 'required',
 			place: 'required',
 		},
@@ -16,7 +18,6 @@ Template.addCandidate.rendered = function() {
 			number: 'Please enter the candidate number',
 			image: 'Please enter image',
 			fname: 'Please enter first name',
-			mname: 'Please enter middle name',
 			lname: 'Please enter last name',
 			place: 'Please enter the place the candidate represents',
 		},

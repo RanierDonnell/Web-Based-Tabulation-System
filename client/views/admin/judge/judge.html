@@ -33,6 +33,16 @@
 	</div>
 
 	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-		<a href="/judge/add" class="btn-floating btn-large waves-effect waves-light {{ getFormColor }}"><i class="mdi-content-add"></i></a>
+		<a class="btn-floating btn-large waves-effect waves-light {{ getFormColor }}">
+			<i class="mdi-editor-mode-edit"></i>
+		</a>
+		<ul>
+			<li>
+				<a href="/judge/report" class="btn-floating {{ getFormColor }}"><i class="mdi-editor-insert-drive-file"></i></a>
+			</li>
+			<li>
+				<a href="/judge/add" class="btn-floating {{ getFormColor }}"><i class="mdi-content-add"></i></a>
+			</li>
+		</ul>
 	</div>
 </template>

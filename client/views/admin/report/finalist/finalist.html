@@ -1,0 +1,25 @@
+<template name="finalistReport">
+	{{#if Template.subscriptionsReady}}
+		<div class="for-print">
+			<h5 class="center">Finalist</h5>
+			<table class="animated fadeIn">
+				<thead>
+					<tr>
+						<th data-field="candidate">Candidate</th>
+						<th data-field="talent">Score</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each candidates}}
+						<tr>
+							<td class="text-capitalize">{{ this.number }}. {{ this.fname }} {{ this.lname }}</td>
+							<td>{{ fix this.score }}</td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+	{{else}}
+		{{> preloader}}
+	{{/if}}
+</template>
