@@ -10,8 +10,11 @@ Template.category.events({
 });
 
 Template.category.helpers({
+	judge: function() {
+		return Meteor.users.findOne();
+	},
 	events: function(name) {
-		return Events.find();
+		return Events.find().fetch();
 	},
 	image: function(id) {
 		return Images.find({'metadata.owner': id});
