@@ -6,10 +6,10 @@
 				<thead>
 					<tr>
 						<th data-field="candidate">Candidate</th>
-						<th data-field="talent">Talent</th>
+						<th data-field="fantasy">Fantasy</th>
 						<th data-field="swimwear">Swimwear</th>
 						<th data-field="gown">Gown</th>
-						<th data-field="interview">Interview</th>
+						<th data-field="preliminary">Preliminary</th>
 						<th data-field="total">Total</th>
 					</tr>
 				</thead>
@@ -17,10 +17,10 @@
 					{{#each candidates}}
 						<tr>
 							<td class="text-capitalize">{{ this.number }}. {{ this.name }}</td>
-							<td>{{ this.talent }}</td>
+							<td>{{ this.fantasy }}</td>
 							<td>{{ this.swimwear }}</td>
 							<td>{{ this.gown }}</td>
-							<td>{{ this.interview }}</td>
+							<td>{{ this.preliminary }}</td>
 							<td>{{ this.total }}</td>
 						</tr>
 					{{/each}}

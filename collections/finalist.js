@@ -34,13 +34,13 @@ Meteor.methods({
 	},
 	generateFinalists: function() {
 		Candidates.find().forEach(function(e) {
-			var talentScore = 0;
+			var fantasyScore = 0;
 			var swimwearScore = 0;
 			var gownScore = 0;
-			var interviewScore = 0;
+			var preliminaryScore = 0;
 
-			Talents.find({candidateId: e._id}).forEach(function(obj) {
-				talentScore += parseFloat(obj.total);
+			Fantasys.find({candidateId: e._id}).forEach(function(obj) {
+				fantasyScore += parseFloat(obj.total);
 			});
 
 			Swimwears.find({candidateId: e._id}).forEach(function(obj) {
@@ -51,11 +51,11 @@ Meteor.methods({
 				gownScore += parseFloat(obj.total);
 			});
 
-			Interviews.find({candidateId: e._id}).forEach(function(obj) {
-				interviewScore += parseFloat(obj.total);
+			Preliminaries.find({candidateId: e._id}).forEach(function(obj) {
+				preliminaryScore += parseFloat(obj.total);
 			});
 
-			var total = parseFloat(talentScore) + parseFloat(swimwearScore) + parseFloat(gownScore) + parseFloat(interviewScore);
+			var total = parseFloat(fantasyScore) + parseFloat(swimwearScore) + parseFloat(gownScore) + parseFloat(preliminaryScore);
 
 			Candidates.update(e._id, {
 				$set: {

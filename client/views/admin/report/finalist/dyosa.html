@@ -1,0 +1,11 @@
+<template name="dyosaReport">
+	{{#if Template.subscriptionsReady}}
+		<div class="for-print center">
+			<h5>Dyosa sa Tubigon 2015</h5>
+			<h3 class="text-capitalize">{{ candidate mutya.candidateId }}</h3>
+			<p>Average Score: {{ computeAverage mutya.total }}%</p>
+		</div>
+	{{else}}
+		{{> preloader}}
+	{{/if}}
+</template>

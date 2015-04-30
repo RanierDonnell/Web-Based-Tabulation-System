@@ -1,5 +1,6 @@
 Template.bestInGown.onCreated(function() {
 	this.subscribe('gowns');
+	this.subscribe('judges');
 });
 
 Template.bestInGown.helpers({
@@ -49,5 +50,11 @@ Template.bestInGown.helpers({
 	candidate: function(id) {
 		var candidate = Candidates.findOne({_id: id});
 		return candidate.number + '. ' + candidate.fname + ' ' + candidate.lname;
+	},
+	average: function(score) {
+		var ave = 0;
+		var judgeCount = Meteor.users.find({'profile.deleted': 0, 'profile.roles': {$in: ['judge']}}).count();
+		ave = parseFloat(score) / parseFloat(judgeCount);
+		return ave.toFixed(2);
 	}
 });

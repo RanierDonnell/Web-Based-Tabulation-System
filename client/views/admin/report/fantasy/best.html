@@ -1,0 +1,11 @@
+<template name="bestInFantasy">
+	{{#if Template.subscriptionsReady}}
+		<div class="for-print center">
+			<h5>Best in Fantasy</h5>
+			<h3 class="text-capitalize">{{ candidate best.candidateId }}</h3>
+			<p>Average: {{ average best.total }}%</p>
+		</div>
+	{{else}}
+		{{> preloader}}
+	{{/if}}
+</template>
