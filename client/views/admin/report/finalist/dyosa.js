@@ -4,7 +4,7 @@ Template.dyosaReport.onCreated(function() {
 });
 
 Template.dyosaReport.helpers({
-	mutya: function() {
+	dyosa: function() {
 		var finalists = [];
 		Finalists.find().forEach(function(e) {
 			var total = parseFloat(e.total);
