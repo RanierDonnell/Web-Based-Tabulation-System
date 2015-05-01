@@ -112,30 +112,30 @@ Meteor.publish('gownsJudge', function(options) {
 	return Gowns.find({eventId: options.eventId, judgeId: options.judgeId});
 });
 
-Meteor.publish('preliminariesJudge', function(options) {
-	return Preliminaries.find({eventId: options.eventId, judgeId: options.judgeId});
+Meteor.publish('interviewsJudge', function(options) {
+	return Interviews.find({eventId: options.eventId, judgeId: options.judgeId});
 });
 
 Meteor.publish('swimwearsJudge', function(options) {
 	return Swimwears.find({eventId: options.eventId, judgeId: options.judgeId});
 });
 
-Meteor.publish('fantasysJudge', function(options) {
-	return Fantasys.find({eventId: options.eventId, judgeId: options.judgeId});
+Meteor.publish('talentsJudge', function(options) {
+	return Talents.find({eventId: options.eventId, judgeId: options.judgeId});
 });
 
 Meteor.publish('finalistsJudge', function(options) {
 	return Finalists.find({eventId: options.eventId, judgeId: options.judgeId});
 });
 
-Meteor.publishComposite('fantasys', {
+Meteor.publishComposite('talents', {
 	find: function() {
-		return Fantasys.find();
+		return Talents.find();
 	},
 	children: [
 		{
-			find: function(fantasy) {
-				return Candidates.find({_id: fantasy.candidateId});
+			find: function(talent) {
+				return Candidates.find({_id: talent.candidateId});
 			}
 		}
 	]
@@ -167,14 +167,14 @@ Meteor.publishComposite('gowns', {
 	]
 });
 
-Meteor.publishComposite('preliminaries', {
+Meteor.publishComposite('interviews', {
 	find: function() {
-		return Preliminaries.find();
+		return Interviews.find();
 	},
 	children: [
 		{
-			find: function(preliminary) {
-				return Candidates.find({_id: preliminary.candidateId});
+			find: function(interview) {
+				return Candidates.find({_id: interview.candidateId});
 			}
 		}
 	]

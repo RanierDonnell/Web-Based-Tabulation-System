@@ -1,0 +1,11 @@
+<template name="anyagReport">
+	{{#if Template.subscriptionsReady}}
+		<div class="for-print center">
+			<h5>Anyag sa Tubigon 2015</h5>
+			<h3 class="text-capitalize">{{ candidate anyag.candidateId }}</h3>
+			<p>Average Score: {{ computeAverage anyag.total }}%</p>
+		</div>
+	{{else}}
+		{{> preloader}}
+	{{/if}}
+</template>

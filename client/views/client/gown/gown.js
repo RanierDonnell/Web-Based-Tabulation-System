@@ -52,19 +52,15 @@ Template.gown.events({
 	'submit form': function(evt, tmpl) {
 		evt.preventDefault();
 
-		var criteria1 = $('#criteria-1').val(),
-			criteria2 = $('#criteria-2').val(),
-			criteria3 = $('#criteria-3').val();
+		var criteria1 = $('#criteria-1').val();
 
-		var total = parseFloat(criteria1 == '' ? '0' : criteria1) + parseFloat(criteria2 == '' ? '0' : criteria2) + parseFloat(criteria3 == '' ? '0' : criteria3);
+		var total = parseFloat(criteria1 == '' ? '0' : criteria1);
 
 		var criteria = {
 			candidateId: Session.get('selectedCandidateId'),
 			eventId: Router.current().params._id,
 			judgeId: Meteor.user()._id,
 			criteria1: criteria1 == '' ? '0' : criteria1,
-			criteria2: criteria2 == '' ? '0' : criteria2,
-			criteria3: criteria3 == '' ? '0' : criteria3,
 			total: total		
 		};
 

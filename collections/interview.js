@@ -1,6 +1,6 @@
-Preliminaries = new Mongo.Collection('preliminaries');
+Interviews = new Mongo.Collection('interviews');
 
-Preliminaries.allow({
+Interviews.allow({
 	insert: function(userId, doc) {
 		if(userId)
 			return true;
@@ -16,15 +16,14 @@ Preliminaries.allow({
 });
 
 Meteor.methods({
-	addPreliminaryScore: function(doc) {
+	addInterviewScore: function(doc) {
 
 		check(doc.candidateId, String);
 		check(doc.eventId, String);
 		check(doc.judgeId, String);
 		check(doc.criteria1, String);
-		check(doc.criteria2, String);
 
-		Preliminaries.update({
+		Interviews.update({
 			candidateId: doc.candidateId,
 			eventId: doc.eventId,
 			judgeId: doc.judgeId

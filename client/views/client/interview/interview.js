@@ -1,12 +1,12 @@
-Template.preliminary.onCreated(function() {
+Template.interview.onCreated(function() {
 	this.subscribe('candidates');
-	this.subscribe('preliminariesJudge', {
+	this.subscribe('interviewsJudge', {
 		eventId: Router.current().params._id,
 		judgeId: Meteor.user()._id
 	});
 });
 
-Template.preliminary.rendered = function() {
+Template.interview.rendered = function() {
 	Session.set('selectedCandidateNumber', 1);
 
 	Meteor.setTimeout(function() {
@@ -14,7 +14,7 @@ Template.preliminary.rendered = function() {
 	}, 300);
 }
 
-Template.preliminary.events({
+Template.interview.events({
 	'click #select-candidate': function(evt, tmpl) {
 		evt.preventDefault();
 		Session.set('selectedCandidateNumber', this.number);
@@ -52,21 +52,19 @@ Template.preliminary.events({
 	'submit form': function(evt, tmpl) {
 		evt.preventDefault();
 
-		var criteria1 = $('#criteria-1').val(),
-			criteria2 = $('#criteria-2').val();
+		var criteria1 = $('#criteria-1').val();
 
-		var total = parseFloat(criteria1 == '' ? '0' : criteria1) + parseFloat(criteria2 == '' ? '0' : criteria2);
+		var total = parseFloat(criteria1 == '' ? '0' : criteria1);
 
 		var criteria = {
 			candidateId: Session.get('selectedCandidateId'),
 			eventId: Router.current().params._id,
 			judgeId: Meteor.user()._id,
 			criteria1: criteria1 == '' ? '0' : criteria1,
-			criteria2: criteria2 == '' ? '0' : criteria2,
 			total: total		
 		};
 
-		Meteor.call('addPreliminaryScore', criteria, function(error) {
+		Meteor.call('addInterviewScore', criteria, function(error) {
 			if(error) {
 				Materialize.toast(error.reason, 4000, 'red darken-2');
 			}
@@ -74,7 +72,7 @@ Template.preliminary.events({
 	}
 });
 
-Template.preliminary.helpers({
+Template.interview.helpers({
 	candidates: function() {
 		return _.sortBy(Candidates.find().fetch(), 'number');
 	},
@@ -91,7 +89,7 @@ Template.preliminary.helpers({
 		var id = Candidates.findOne({number: 1})._id;
 		Session.set('selectedCandidateId', id);
 	},
-	preliminary: function() {
-		return Preliminaries.findOne({candidateId: Session.get('selectedCandidateId')});
+	interview: function() {
+		return Interviews.findOne({candidateId: Session.get('selectedCandidateId')});
 	}
 });

@@ -34,20 +34,11 @@
 		    	<form style="margin-top: 20px;">
 		    		<div class="row">
 						<div class="input-field col s10">
-							<input id="criteria-1" name="criteria-1" type="number" min="0" max="50" step="0.01" class="validate" value="{{ finalist.criteria1 }}" autofocus>
-							<label for="criteria-1" class="active">Beauty</label>
+							<input id="criteria-1" name="criteria-1" type="number" min="0" max="10" step="0.01" class="validate" value="{{ finalist.criteria1 }}" autofocus>
+							<label for="criteria-1" class="active">Score</label>
 						</div>
 						<div class="col s2 m-top-33">
-							/ 50
-						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s10">
-							<input id="criteria-2" name="criteria-2" type="number" min="0" max="50" step="0.01" class="validate" value="{{ finalist.criteria2 }}">
-							<label for="criteria-2" class="active">Intelligence</label>
-						</div>
-						<div class="col s2 m-top-33">
-							/ 50
+							/ 10
 						</div>
 					</div>
 

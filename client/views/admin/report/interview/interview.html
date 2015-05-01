@@ -1,7 +1,7 @@
-<template name="fantasyReport">
+<template name="interviewReport">
 	{{#if Template.subscriptionsReady}}
 		<div class="for-print">
-			<h5 class="center">Fantasy</h5>
+			<h5 class="center">Interview</h5>
 			<table class="animated fadeIn">
 				<thead>
 					<tr>
@@ -18,7 +18,7 @@
 						<th data-field="judge10">Judge10</th>
 						<th data-field="judge11">Judge11</th>
 						<th data-field="judge12">Judge12</th>
-						<th data-field="average">Average</th>
+						<th data-field="total">Total</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -38,7 +38,7 @@
 							<td>{{ getJudgeScore 'judge10' this._id }}</td>
 							<td>{{ getJudgeScore 'judge11' this._id }}</td>
 							<td>{{ getJudgeScore 'judge12' this._id }}</td>
-							<td>{{ getCandidateScore this._id }}%</td>
+							<td>{{ getCandidateScore this._id }}</td>
 						</tr>
 					{{/each}}
 				</tbody>

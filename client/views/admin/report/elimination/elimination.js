@@ -1,17 +1,17 @@
 Template.eliminationReport.onCreated(function() {
-	this.subscribe('fantasys');
+	this.subscribe('talents');
 	this.subscribe('swimwears');
 	this.subscribe('gowns');
-	this.subscribe('preliminaries');
+	this.subscribe('interviews');
 });
 
 Template.eliminationReport.helpers({
 	candidates: function() {
 		var candidate = [];
 		Candidates.find().forEach(function(e) {
-			var fantasy = 0;
-			Fantasys.find({candidateId: e._id}).forEach(function(e) {
-				fantasy = fantasy + parseFloat(e.total);
+			var talent = 0;
+			Talents.find({candidateId: e._id}).forEach(function(e) {
+				talent = talent + parseFloat(e.total);
 			});
 
 			var swimwear = 0;
@@ -24,35 +24,35 @@ Template.eliminationReport.helpers({
 				gown = gown + parseFloat(e.total);
 			});
 
-			var preliminary = 0;
-			Preliminaries.find({candidateId: e._id}).forEach(function(e) {
-				preliminary = preliminary + parseFloat(e.total);
+			var interview = 0;
+			Interviews.find({candidateId: e._id}).forEach(function(e) {
+				interview = interview + parseFloat(e.total);
 			});
 
-			fantasy = typeof fantasy != 'undefined' ? fantasy : '';
+			talent = typeof talent != 'undefined' ? talent : '';
 			swimwear = typeof swimwear != 'undefined' ? swimwear : '';
 			gown = typeof gown != 'undefined' ? gown : '';
-			preliminary = typeof preliminary != 'undefined' ? preliminary : '';
+			interview = typeof interview != 'undefined' ? interview : '';
 
-			var f = fantasy != '' ? parseFloat(fantasy) : 0;
+			var t = talent != '' ? parseFloat(talent) : 0;
 			var s = swimwear != '' ? parseFloat(swimwear) : 0;
 			var g = gown != '' ? parseFloat(gown) : 0;
-			var p = preliminary != '' ? parseFloat(preliminary) : 0;
+			var i = interview != '' ? parseFloat(interview) : 0;
 
-			var total = f + s + g + p;
+			var total = t + s + g + i;
 
-			fantasy = fantasy != '' ? parseFloat(fantasy).toFixed(2) : '';
+			talent = talent != '' ? parseFloat(talent).toFixed(2) : '';
 			swimwear = swimwear != '' ? parseFloat(swimwear).toFixed(2) : '';
 			gown = gown != '' ? parseFloat(gown).toFixed(2) : '';
-			preliminary = preliminary != '' ? parseFloat(preliminary).toFixed(2) : '';
+			interview = interview != '' ? parseFloat(interview).toFixed(2) : '';
 
 			candidate.push({
 				number: e.number,
 				name: e.fname + ' ' + e.mname + ' ' + e.lname,
-				fantasy: fantasy,
+				talent: talent,
 				swimwear: swimwear,
 				gown: gown,
-				preliminary: preliminary,
+				interview: interview,
 				total: parseFloat(total).toFixed(2)
 			});
 

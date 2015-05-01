@@ -25,8 +25,6 @@ Template.swimwearReport.helpers({
 		Swimwears.find({candidateId: candidate}).forEach(function(e) {
 			score += parseFloat(e.total);
 		});
-		var judgeCount = Meteor.users.find({'profile.deleted': 0, 'profile.roles': {$in: ['judge']}}).count();
-		score = parseFloat(score) / parseFloat(judgeCount);
 		return score.toFixed(2);
 	}
 });

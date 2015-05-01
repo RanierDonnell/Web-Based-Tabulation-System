@@ -1,17 +1,17 @@
-Template.bestInGown.onCreated(function() {
-	this.subscribe('gowns');
+Template.bestInTalent.onCreated(function() {
+	this.subscribe('talents');
 	this.subscribe('judges');
 });
 
-Template.bestInGown.helpers({
+Template.bestInTalent.helpers({
 	best: function() {
-		var gowns = [];
+		var talents = [];
 
-		Gowns.find().forEach(function(e) {
+		Talents.find().forEach(function(e) {
 			var total = parseFloat(e.total);
 
-			if(gowns.length == 0) {
-				gowns.push({
+			if(talents.length == 0) {
+				talents.push({
 					candidateId: e.candidateId,
 					criteria1: e.criteria1,
 					total: total.toFixed(2)
@@ -19,17 +19,17 @@ Template.bestInGown.helpers({
 			}
 			else {
 				var found = false;
-				for(var i = 0; i < gowns.length; i++) {
-					if(gowns[i].candidateId == e.candidateId) {
-						gowns[i].criteria1 = parseFloat(gowns[i].criteria1) + parseFloat(e.criteria1);
-						gowns[i].total = (parseFloat(gowns[i].total) + parseFloat(total)).toFixed(2);
+				for(var i = 0; i < talents.length; i++) {
+					if(talents[i].candidateId == e.candidateId) {
+						talents[i].criteria1 = parseFloat(talents[i].criteria1) + parseFloat(e.criteria1);
+						talents[i].total = (parseFloat(talents[i].total) + parseFloat(total)).toFixed(2);
 						found = true;
 						break;
 					}
 				}
 
 				if(!found) {
-					gowns.push({
+					talents.push({
 						candidateId: e.candidateId,
 						criteria1: e.criteria1,
 						total: total.toFixed(2)
@@ -38,11 +38,11 @@ Template.bestInGown.helpers({
 			}
 		});
 		
-		var sortedGowns = _.sortBy(gowns, function(obj) {
+		var sortedTalents = _.sortBy(talents, function(obj) {
 			return parseFloat(obj.total);
 		}).reverse();
 
-		return _.first(sortedGowns);
+		return _.first(sortedTalents);
 	},
 	candidate: function(id) {
 		var candidate = Candidates.findOne({_id: id});

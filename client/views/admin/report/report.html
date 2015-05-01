@@ -3,14 +3,14 @@
 		<div class="input-field col s3 offset-s7">
 			<select class="browser-default text-capitalize" id="select-report">
 				<option value="" selected>Choose report</option>
-				<option value="b-fantasy">Best in Fantasy</option>
+				<option value="b-talent">Best in Talent</option>
 				<option value="b-swimwear">Best in Swimwear</option>
 				<option value="b-gown">Best in Gown</option>
-				<option value="b-preliminary">Best in Preliminary</option>
-				<option value="fantasy">Fantasy</option>
+				<option value="b-interview">Best in Interview</option>
+				<option value="talent">Talent</option>
 				<option value="swimwear">Swimwear</option>
 				<option value="gown">Gown</option>
-				<option value="preliminary">Preliminary</option>
+				<option value="interview">Interview</option>
 				<option value="elimination-score">Elimination Score</option>
 				<option value="finalist">Finalist</option>
 				<option value="finalist-score">Finalist Score</option>
@@ -18,7 +18,7 @@
 				<option value="3rd">3rd Runner up</option>
 				<option value="2nd">2nd Runner up</option>
 				<option value="1st">1st Runner up</option>
-				<option value="dyosa">Dyosa sa Tubigon 2015</option>
+				<option value="anyag">Anyag sa Tubigon 2015</option>
 			</select>
 		</div>
 		<div class="col s2 m-top-20">
@@ -26,8 +26,8 @@
 		</div>
 		
 		<div class="col s12"> 
-			{{#if selectedReport 'FANTASY'}}
-				{{> fantasyReport}}
+			{{#if selectedReport 'TALENT'}}
+				{{> talentReport}}
 			{{/if}}
 
 			{{#if selectedReport 'SWIMWEAR'}}
@@ -38,20 +38,20 @@
 				{{> gownReport}}
 			{{/if}}
 
-			{{#if selectedReport 'PRELIMINARY'}}
-				{{> preliminaryReport}}
+			{{#if selectedReport 'INTERVIEW'}}
+				{{> interviewReport}}
 			{{/if}}
 
-			{{#if selectedReport 'B-FANTASY'}}
-				{{> bestInFantasy}}
+			{{#if selectedReport 'B-TALENT'}}
+				{{> bestInTalent}}
 			{{/if}}
 
 			{{#if selectedReport 'B-SWIMWEAR'}}
 				{{> bestInSwimwear}}
 			{{/if}}
 
-			{{#if selectedReport 'B-PRELIMINARY'}}
-				{{> bestInPreliminary}}
+			{{#if selectedReport 'B-INTERVIEW'}}
+				{{> bestInInterview}}
 			{{/if}}
 
 			{{#if selectedReport 'B-GOWN'}}
@@ -86,8 +86,8 @@
 				{{> firstReport}}
 			{{/if}}
 
-			{{#if selectedReport 'DYOSA'}}
-				{{> dyosaReport}}
+			{{#if selectedReport 'ANYAG'}}
+				{{> anyagReport}}
 			{{/if}}
 		</div>
 

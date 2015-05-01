@@ -1,6 +1,6 @@
-Fantasys = new Mongo.Collection('fatasys');
+Talents = new Mongo.Collection('talents');
 
-Fantasys.allow({
+Talents.allow({
 	insert: function(userId, doc) {
 		if(userId)
 			return true;
@@ -16,15 +16,14 @@ Fantasys.allow({
 });
 
 Meteor.methods({
-	addFantasyScore: function(doc) {
+	addTalentScore: function(doc) {
 
 		check(doc.candidateId, String);
 		check(doc.eventId, String);
 		check(doc.judgeId, String);
 		check(doc.criteria1, String);
-		check(doc.criteria2, String);
 
-		Fantasys.update({
+		Talents.update({
 			candidateId: doc.candidateId,
 			eventId: doc.eventId,
 			judgeId: doc.judgeId

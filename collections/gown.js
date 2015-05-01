@@ -22,8 +22,6 @@ Meteor.methods({
 		check(doc.eventId, String);
 		check(doc.judgeId, String);
 		check(doc.criteria1, String);
-		check(doc.criteria2, String);
-		check(doc.criteria3, String);
 
 		Gowns.update({
 			candidateId: doc.candidateId,

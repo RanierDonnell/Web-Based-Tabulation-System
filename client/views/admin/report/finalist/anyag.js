@@ -1,10 +1,10 @@
-Template.dyosaReport.onCreated(function() {
+Template.anyagReport.onCreated(function() {
 	this.subscribe('fourthRunnerUp');
 	this.subscribe('judges');
 });
 
-Template.dyosaReport.helpers({
-	mutya: function() {
+Template.anyagReport.helpers({
+	anyag: function() {
 		var finalists = [];
 		Finalists.find().forEach(function(e) {
 			var total = parseFloat(e.total);
