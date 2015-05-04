@@ -3,14 +3,16 @@
 		<div class="input-field col s3 offset-s7">
 			<select class="browser-default text-capitalize" id="select-report">
 				<option value="" selected>Choose report</option>
-				<option value="b-fantasy">Best in Fantasy</option>
-				<option value="b-swimwear">Best in Swimwear</option>
-				<option value="b-gown">Best in Gown</option>
-				<option value="b-preliminary">Best in Preliminary</option>
-				<option value="fantasy">Fantasy</option>
-				<option value="swimwear">Swimwear</option>
-				<option value="gown">Gown</option>
-				<option value="preliminary">Preliminary</option>
+				<option value="b-production-number">Best in Production Number</option>
+				<option value="b-festival-attire">Best in Festival Attire</option>
+				<option value="b-men-in-shorts">Best in Men In Shorts</option>
+				<option value="b-formal-attire">Best in Formal Attire</option>
+				<option value="b-casual-interview">Best in Casual Interview</option>
+				<option value="production-number">Production Number</option>
+				<option value="festival-attire">Festival Attire</option>
+				<option value="men-in-shorts">Men In Shorts</option>
+				<option value="formal-attire">Formal Attire</option>
+				<option value="casual-interview">Casual Interview</option>
 				<option value="elimination-score">Elimination Score</option>
 				<option value="finalist">Finalist</option>
 				<option value="finalist-score">Finalist Score</option>
@@ -18,7 +20,7 @@
 				<option value="3rd">3rd Runner up</option>
 				<option value="2nd">2nd Runner up</option>
 				<option value="1st">1st Runner up</option>
-				<option value="dyosa">Dyosa sa Tubigon 2015</option>
+				<option value="ambongan">Ambongan sa Tubigon 2015</option>
 			</select>
 		</div>
 		<div class="col s2 m-top-20">
@@ -26,36 +28,44 @@
 		</div>
 		
 		<div class="col s12"> 
-			{{#if selectedReport 'FANTASY'}}
-				{{> fantasyReport}}
+			{{#if selectedReport 'PRODUCTION-NUMBER'}}
+				{{> productionNumberReport}}
 			{{/if}}
 
-			{{#if selectedReport 'SWIMWEAR'}}
-				{{> swimwearReport}}
+			{{#if selectedReport 'FESTIVAL-ATTIRE'}}
+				{{> festivalAttireReport}}
 			{{/if}}
 
-			{{#if selectedReport 'GOWN'}}
-				{{> gownReport}}
+			{{#if selectedReport 'MEN-IN-SHORTS'}}
+				{{> menInShortsReport}}
 			{{/if}}
 
-			{{#if selectedReport 'PRELIMINARY'}}
-				{{> preliminaryReport}}
+			{{#if selectedReport 'FORMAL-ATTIRE'}}
+				{{> formalAttireReport}}
 			{{/if}}
 
-			{{#if selectedReport 'B-FANTASY'}}
-				{{> bestInFantasy}}
+			{{#if selectedReport 'CASUAL-INTERVIEW'}}
+				{{> casualInterviewReport}}
 			{{/if}}
 
-			{{#if selectedReport 'B-SWIMWEAR'}}
-				{{> bestInSwimwear}}
+			{{#if selectedReport 'B-PRODUCTION-NUMBER'}}
+				{{> bestInProductionNumber}}
 			{{/if}}
 
-			{{#if selectedReport 'B-PRELIMINARY'}}
-				{{> bestInPreliminary}}
+			{{#if selectedReport 'B-FESTIVAL-ATTIRE'}}
+				{{> bestInFestivalAttire}}
 			{{/if}}
 
-			{{#if selectedReport 'B-GOWN'}}
-				{{> bestInGown}}
+			{{#if selectedReport 'B-FORMAL-ATTIRE'}}
+				{{> bestInFormalAttire}}
+			{{/if}}
+
+			{{#if selectedReport 'B-MEN-IN-SHORTS'}}
+				{{> bestInMenInShorts}}
+			{{/if}}
+
+			{{#if selectedReport 'B-CASUAL-INTERVIEW'}}
+				{{> bestInCasualInterview}}
 			{{/if}}
 
 			{{#if selectedReport 'ELIMINATION-SCORE'}}
@@ -86,8 +96,8 @@
 				{{> firstReport}}
 			{{/if}}
 
-			{{#if selectedReport 'DYOSA'}}
-				{{> dyosaReport}}
+			{{#if selectedReport 'AMBONGAN'}}
+				{{> ambonganReport}}
 			{{/if}}
 		</div>
 

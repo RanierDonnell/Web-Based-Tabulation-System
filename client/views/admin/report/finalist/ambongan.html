@@ -1,0 +1,11 @@
+<template name="ambonganReport">
+	{{#if Template.subscriptionsReady}}
+		<div class="for-print center">
+			<h5>Ambongan sa Tubigon 2015</h5>
+			<h3 class="text-capitalize">{{ candidate ambongan.candidateId }}</h3>
+			<p>Average Score: {{ computeAverage ambongan.total }}%</p>
+		</div>
+	{{else}}
+		{{> preloader}}
+	{{/if}}
+</template>

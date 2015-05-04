@@ -108,73 +108,90 @@ Meteor.publish('settings', function() {
 	return Settings.find();
 });
 
-Meteor.publish('gownsJudge', function(options) {
-	return Gowns.find({eventId: options.eventId, judgeId: options.judgeId});
+Meteor.publish('festivalAttiresJudge', function(options) {
+	return FestivalAttires.find({eventId: options.eventId, judgeId: options.judgeId});
 });
 
-Meteor.publish('preliminariesJudge', function(options) {
-	return Preliminaries.find({eventId: options.eventId, judgeId: options.judgeId});
+Meteor.publish('menInShortsJudge', function(options) {
+	return MenInShorts.find({eventId: options.eventId, judgeId: options.judgeId});
 });
 
-Meteor.publish('swimwearsJudge', function(options) {
-	return Swimwears.find({eventId: options.eventId, judgeId: options.judgeId});
+Meteor.publish('formalAttiresJudge', function(options) {
+	return FormalAttires.find({eventId: options.eventId, judgeId: options.judgeId});
 });
 
-Meteor.publish('fantasysJudge', function(options) {
-	return Fantasys.find({eventId: options.eventId, judgeId: options.judgeId});
+Meteor.publish('productionNumbersJudge', function(options) {
+	return ProductionNumbers.find({eventId: options.eventId, judgeId: options.judgeId});
+});
+
+Meteor.publish('casualInterviewsJudge', function(options) {
+	return CasualInterviews.find({eventId: options.eventId, judgeId: options.judgeId});
 });
 
 Meteor.publish('finalistsJudge', function(options) {
 	return Finalists.find({eventId: options.eventId, judgeId: options.judgeId});
 });
 
-Meteor.publishComposite('fantasys', {
+Meteor.publishComposite('productionNumbers', {
 	find: function() {
-		return Fantasys.find();
+		return ProductionNumbers.find();
 	},
 	children: [
 		{
-			find: function(fantasy) {
-				return Candidates.find({_id: fantasy.candidateId});
+			find: function(productionNumber) {
+				return Candidates.find({_id: productionNumber.candidateId});
 			}
 		}
 	]
 });
 
-Meteor.publishComposite('swimwears', {
+Meteor.publishComposite('formalAttires', {
 	find: function() {
-		return Swimwears.find();
+		return FormalAttires.find();
 	},
 	children: [
 		{
-			find: function(swimwear) {
-				return Candidates.find({_id: swimwear.candidateId});
+			find: function(formalAttire) {
+				return Candidates.find({_id: formalAttire.candidateId});
 			}
 		}
 	]
 });
 
-Meteor.publishComposite('gowns', {
+Meteor.publishComposite('festivalAttires', {
 	find: function() {
-		return Gowns.find();
+		return FestivalAttires.find();
 	},
 	children: [
 		{
-			find: function(gown) {
-				return Candidates.find({_id: gown.candidateId});
+			find: function(festivalAttire) {
+				return Candidates.find({_id: festivalAttire.candidateId});
 			}
 		}
 	]
 });
 
-Meteor.publishComposite('preliminaries', {
+Meteor.publishComposite('menInShorts', {
 	find: function() {
-		return Preliminaries.find();
+		return MenInShorts.find();
 	},
 	children: [
 		{
-			find: function(preliminary) {
-				return Candidates.find({_id: preliminary.candidateId});
+			find: function(menInShorts) {
+				return Candidates.find({_id: menInShorts.candidateId});
+			}
+		}
+	]
+});
+
+Meteor.publishComposite('casualInterviews', {
+	find: function() {
+		return CasualInterviews.find();
+	},
+	children: [
+		{
+			find: function(casualInterview) {
+				return Candidates.find({_id: casualInterview.candidateId});
 			}
 		}
 	]

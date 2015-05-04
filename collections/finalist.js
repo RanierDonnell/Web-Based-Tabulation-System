@@ -34,28 +34,45 @@ Meteor.methods({
 	},
 	generateFinalists: function() {
 		Candidates.find().forEach(function(e) {
-			var fantasyScore = 0;
-			var swimwearScore = 0;
-			var gownScore = 0;
-			var preliminaryScore = 0;
+			var productionNumberScore = 0;
+			var festivalAttireScore = 0;
+			var menInShortsScore = 0;
+			var formalAttireScore = 0;
+			var casualInterviewScore = 0;
 
-			Fantasys.find({candidateId: e._id}).forEach(function(obj) {
-				fantasyScore += parseFloat(obj.total);
+			ProductionNumbers.find({candidateId: e._id}).forEach(function(obj) {
+				productionNumberScore += parseFloat(obj.total);
 			});
 
-			Swimwears.find({candidateId: e._id}).forEach(function(obj) {
-				swimwearScore += parseFloat(obj.total);
+			FestivalAttires.find({candidateId: e._id}).forEach(function(obj) {
+				festivalAttireScore += parseFloat(obj.total);
 			});
 
-			Gowns.find({candidateId: e._id}).forEach(function(obj) {
-				gownScore += parseFloat(obj.total);
+			MenInShorts.find({candidateId: e._id}).forEach(function(obj) {
+				menInShortsScore += parseFloat(obj.total);
 			});
 
-			Preliminaries.find({candidateId: e._id}).forEach(function(obj) {
-				preliminaryScore += parseFloat(obj.total);
+			FormalAttires.find({candidateId: e._id}).forEach(function(obj) {
+				formalAttireScore += parseFloat(obj.total);
 			});
 
-			var total = parseFloat(fantasyScore) + parseFloat(swimwearScore) + parseFloat(gownScore) + parseFloat(preliminaryScore);
+			CasualInterviews.find({candidateId: e._id}).forEach(function(obj) {
+				casualInterviewScore += parseFloat(obj.total);
+			});
+
+			productionNumberScore *= parseFloat(.2);
+			festivalAttireScore *= parseFloat(.2);
+			menInShortsScore *= parseFloat(.2);
+			formalAttireScore *= parseFloat(.2);
+			casualInterviewScore *= parseFloat(.2);
+
+			productionNumberScore = productionNumberScore.toFixed(2);
+			festivalAttireScore = festivalAttireScore.toFixed(2);
+			menInShortsScore = menInShortsScore.toFixed(2);
+			formalAttireScore = formalAttireScore.toFixed(2);
+			casualInterviewScore = casualInterviewScore.toFixed(2);
+
+			var total = parseFloat(productionNumberScore) + parseFloat(festivalAttireScore) + parseFloat(menInShortsScore) + parseFloat(formalAttireScore) + parseFloat(casualInterviewScore);
 
 			Candidates.update(e._id, {
 				$set: {

@@ -6,10 +6,11 @@
 				<thead>
 					<tr>
 						<th data-field="candidate">Candidate</th>
-						<th data-field="fantasy">Fantasy</th>
-						<th data-field="swimwear">Swimwear</th>
-						<th data-field="gown">Gown</th>
-						<th data-field="preliminary">Preliminary</th>
+						<th data-field="production-number">Production Number</th>
+						<th data-field="festival-attire">Festival Attire</th>
+						<th data-field="men-in-shorts">Men In Shorts</th>
+						<th data-field="formal-attire">Formal Attire</th>
+						<th data-field="casual-interview">Casual Interview</th>
 						<th data-field="total">Total</th>
 					</tr>
 				</thead>
@@ -17,10 +18,11 @@
 					{{#each candidates}}
 						<tr>
 							<td class="text-capitalize">{{ this.number }}. {{ this.name }}</td>
-							<td>{{ this.fantasy }}</td>
-							<td>{{ this.swimwear }}</td>
-							<td>{{ this.gown }}</td>
-							<td>{{ this.preliminary }}</td>
+							<td>{{ this.productionNumber }}</td>
+							<td>{{ this.festivalAttire }}</td>
+							<td>{{ this.menInShorts }}</td>
+							<td>{{ this.formalAttire }}</td>
+							<td>{{ this.casualInterview }}</td>
 							<td>{{ this.total }}</td>
 						</tr>
 					{{/each}}

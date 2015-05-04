@@ -18,5 +18,8 @@ Template.category.helpers({
 	},
 	image: function(id) {
 		return Images.find({'metadata.owner': id});
+	},
+	removeSpace: function(str) {
+		return str.replace(/\s+/g, '');
 	}
 });
