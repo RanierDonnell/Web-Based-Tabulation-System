@@ -11,13 +11,6 @@
 						<th data-field="judge3">Judge3</th>
 						<th data-field="judge4">Judge4</th>
 						<th data-field="judge5">Judge5</th>
-						<th data-field="judge6">Judge6</th>
-						<th data-field="judge7">Judge7</th>
-						<th data-field="judge8">Judge8</th>
-						<th data-field="judge9">Judge9</th>
-						<th data-field="judge10">Judge10</th>
-						<th data-field="judge11">Judge11</th>
-						<th data-field="judge12">Judge12</th>
 						<th data-field="average">Average</th>
 					</tr>
 				</thead>
@@ -31,18 +24,39 @@
 							<td>{{ getJudgeScore 'judge3' this._id }}</td>
 							<td>{{ getJudgeScore 'judge4' this._id }}</td>
 							<td>{{ getJudgeScore 'judge5' this._id }}</td>
-							<td>{{ getJudgeScore 'judge6' this._id }}</td>
-							<td>{{ getJudgeScore 'judge7' this._id }}</td>
-							<td>{{ getJudgeScore 'judge8' this._id }}</td>
-							<td>{{ getJudgeScore 'judge9' this._id }}</td>
-							<td>{{ getJudgeScore 'judge10' this._id }}</td>
-							<td>{{ getJudgeScore 'judge11' this._id }}</td>
-							<td>{{ getJudgeScore 'judge12' this._id }}</td>
 							<td>{{ getCandidateScore this._id }}%</td>
 						</tr>
 					{{/each}}
 				</tbody>
 			</table>
+
+			<div class="row center-align">
+				<div class="col s4 m-top-20">
+					<p class="text-capitalize" style="text-decoration: underline; margin-bottom: 0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					<div style="font-size: 10px">Judge1</div>
+				</div>
+				<div class="col s4 m-top-20">
+					<p class="text-capitalize" style="text-decoration: underline; margin-bottom: 0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					<div style="font-size: 10px">Judge2</div>
+				</div>
+				<div class="col s4 m-top-20">
+					<p class="text-capitalize" style="text-decoration: underline; margin-bottom: 0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					<div style="font-size: 10px">Judge3</div>
+				</div>
+				<div class="col s4 m-top-20 offset-s2">
+					<p class="text-capitalize" style="text-decoration: underline; margin-bottom: 0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					<div style="font-size: 10px">Judge4</div>
+				</div>
+				<div class="col s4 m-top-20">
+					<p class="text-capitalize" style="text-decoration: underline; margin-bottom: 0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					<div style="font-size: 10px">Judge5</div>
+				</div>
+				<div class="col s4 m-top-20 offset-s4">
+					<p class="text-capitalize" style="text-decoration: underline; margin-bottom: 0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+					<div style="font-size: 10px">Chief Tabulator</div>
+				</div>
+			</div>
+			
 		</div>
 	{{else}}
 		{{> preloader}}

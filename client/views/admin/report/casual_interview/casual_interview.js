@@ -28,5 +28,8 @@ Template.casualInterviewReport.helpers({
 		var judgeCount = Meteor.users.find({'profile.deleted': 0, 'profile.roles': {$in: ['judge']}}).count();
 		score = parseFloat(score) / parseFloat(judgeCount);
 		return score.toFixed(2);
+	},
+	judges: function() {
+		return Meteor.users.find({'profile.deleted': 0, 'profile.roles': {$in: ['judge']}}, {sort: {username: 1}});
 	}
 });
