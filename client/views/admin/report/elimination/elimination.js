@@ -47,7 +47,7 @@ Template.eliminationReport.helpers({
 			var formal = formalAttire != '' ? parseFloat(formalAttire) : 0;
 			var casual = casualInterview != '' ? parseFloat(casualInterview) : 0;
 
-			var total = prod + fest + men + formal + casual;
+			var total = (prod) + (fest * parseFloat(.2)) + (men * parseFloat(.2)) + (formal * parseFloat(.2)) + (casual * parseFloat(.2));
 
 			productionNumber = productionNumber != '' ? parseFloat(productionNumber).toFixed(2) : '';
 			festivalAttire = festivalAttire != '' ? parseFloat(festivalAttire).toFixed(2) : '';
